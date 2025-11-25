@@ -1,6 +1,6 @@
 name: axis
 version: '1.0'
-main: at.axis.main
+main: at.axis.Main
 api-version: '1.21'
 prefix: [ Axis ]
 load: STARTUP

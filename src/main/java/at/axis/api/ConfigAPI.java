@@ -9,13 +9,13 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.io.File;
 import java.io.IOException;
 
-public class configAPI {
+public class ConfigAPI {
     private final JavaPlugin plugin;
     private final String fileName;
     private File configFile;
     private FileConfiguration config;
 
-    public configAPI(JavaPlugin plugin, String fileName) {
+    public ConfigAPI(JavaPlugin plugin, String fileName) {
         this.plugin = plugin;
         this.fileName = fileName;
     }
