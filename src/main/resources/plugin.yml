@@ -1,0 +1,8 @@
+name: axis
+version: '1.0'
+main: at.axis.main
+api-version: '1.21'
+prefix: [ Axis ]
+load: STARTUP
+authors: [ janis ]
+description: An universal essential plugin.
