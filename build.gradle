@@ -16,6 +16,15 @@ repositories {
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21.10-R0.1-SNAPSHOT")
+    implementation("net.dv8tion:JDA:6.0.0") { // replace $version with the latest version
+        // Optionally disable audio natives to reduce jar size by excluding `opus-java` and `tink`
+        // Gradle DSL:
+        // exclude module: 'opus-java' // required for encoding audio into opus, not needed if audio is already provided in opus encoding
+        // exclude module: 'tink' // required for encrypting and decrypting audio
+        // Kotlin DSL:
+        // exclude(module="opus-java") // required for encoding audio into opus, not needed if audio is already provided in opus encoding
+        // exclude(module="tink") // required for encrypting and decrypting audio
+    }
 }
 
 tasks {
