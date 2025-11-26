@@ -10,10 +10,12 @@ import java.util.Objects;
 
 public class CommandHandler {
 
-    private JavaPlugin plugin;
+    private final JavaPlugin plugin;
+    private final GuiHandler guiHandler;
 
-    public void commandHandler(JavaPlugin plugin) {
+    public CommandHandler(JavaPlugin plugin, GuiHandler gui) {
         this.plugin = plugin;
+        this.guiHandler = gui;
     }
 
     private void register(String name, Object obj) {
@@ -29,7 +31,7 @@ public class CommandHandler {
     }
 
     public void registerCommands() {
-        register("axis", new Axis());
+        register("axis", new Axis(guiHandler));
     }
 
 }
