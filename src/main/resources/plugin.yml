@@ -6,3 +6,6 @@ prefix: [ Axis ]
 load: STARTUP
 authors: [ janis ]
 description: An universal essential plugin.
+commands:
+  axis:
+    description: Main Command for Axis
