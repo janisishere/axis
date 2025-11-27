@@ -6,12 +6,30 @@ import dev.triumphteam.gui.guis.GuiItem;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextColor;
 import net.kyori.adventure.text.format.TextDecoration;
-import net.kyori.adventure.util.HSVLike;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 
 public class GuiHandler implements Listener {
+
+    public void configUI(Player target) {
+        Gui gui = Gui.gui()
+                .title(Component.text("Axis Menu / Config"))
+                .rows(6)
+                .create();
+
+        gui.getFiller().fill(
+                ItemBuilder.from(Material.BLACK_STAINED_GLASS_PANE)
+                        .name(Component.text(""))
+                        .asGuiItem()
+        );
+
+        gui.setDefaultClickAction(event -> {
+            event.setCancelled(true);
+        });
+
+        gui.open(target);
+    }
 
     public void showMainUI(Player target) {
         Gui gui = Gui.gui()
@@ -76,8 +94,10 @@ public class GuiHandler implements Listener {
                 )
                 .lore(Component.text("Configurate Axis").color(TextColor.color(0xffffff)).decoration(TextDecoration.ITALIC, false).decoration(TextDecoration.BOLD, true))
                 .asGuiItem(event -> {
-
-        });
+                    gui.close(target);
+                    configUI(target);
+                }
+        );
 
         GuiItem players = ItemBuilder.from(Material.PLAYER_HEAD)
                 .name(
